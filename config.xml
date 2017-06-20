@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <preference name="android-targetSdkVersion" value="24"/>
-    <name>reconocedor de img3</name>
+    <name>Giants Of Patagonia</name>
     <description>bla </description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Pixeloide</author>
     <content src="index.html" />

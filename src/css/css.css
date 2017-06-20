@@ -1,19 +1,31 @@
 @font-face {
     font-family: stencil;
-    src: url(../fonts/sansation_light.woff);
+    src: url(../fonts/Stencil Cargo Army.ttf);
+}
+
+@font-face {
+    font-family: helveticaCond;
+    src: url(../fonts/helveticaCond.otf);
+}
+
+
+p{
+	font-family:helveticaCond;
+}
+
+h1, h2, h3, h4, h5, h6{
+font-family:stencil;
 }
 
 #splash{
-
-	position:fixed;
-	width:100%;
-	height:100%;
-	background-image: url(../img/splash.png);
-	background-size: auto 100%;
-	background-position:center top;
-	z-index:999;
-	display:block;
-
+position:fixed;
+width:100%;
+height:100%;
+background-image: url(../img/splash.jpg);
+background-size: cover;
+background-position: 50% 50%;
+z-index:999;
+display:block;
 }
 
 
