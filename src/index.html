@@ -17,6 +17,9 @@
  <script src="js/ng-cordova.min.js"></script>
 -->
  <script src="cordova.js"></script>
+
+
+
  <link rel="stylesheet" type="text/css" href="css/css.css">
 
 
@@ -33,12 +36,35 @@
 
 
 </head>
-<body onload="console.log('body load');">
+<body onload="console.log('body load');" onresize="responsive()">
 
 <div id="splash"></div>
 
 <div class="seccion" id="mainMenu">
-  <div class="contenidoCentrado">sfgsfsfgsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg gsfsf sg  sg sf</div>
+  <div class="contenidoCentrado">
+    
+
+    <div class="row"><br><br></div>
+    <div class="row" id="logo">
+      <img src="img/logo.png" id="logoIMG">
+    </div>
+
+    <div class="row" >
+      <div class="botonMenu" id="scanner"> <img src="img/scanner.png" >   </div>
+          <div class="botonMenu" id="lista"> <img src="img/botonLista.png" >    </div>
+
+    </div>
+
+      <div class="row" >
+      <div class="botonMenu" id="minijuegos"> <img src="img/minijuegos.png" >   </div>
+          <div class="botonMenu" id="info"> <img src="img/info.png" >    </div>
+
+    </div>
+
+
+ 
+
+  </div>
 </div>
 <div class="seccion" id="miniJuegos"><div class="contenidoCentrado"></div></div>
 <div class="seccion" id="listaDinos"><div class="contenidoCentrado"></div></div>

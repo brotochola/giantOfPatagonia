@@ -26,16 +26,23 @@ function onDeviceReady() {
     
   
     //responsive
-    var aspectRatio=calcularAspectRatio();
-    $(".contenidoCentrado").width(window.innerHeight/aspectRatio/1.2);
+    responsive();
   
     setTimeout(function(){
       $("#splash").hide();
       $("#mainMenu").show();
     }, tiempoSplash); //splash a la fuerza 1 seg
+
+
+
+  
 }
 
-
+function responsive(){
+  console.log("responsive");
+   var aspectRatio=calcularAspectRatio();
+    $(".contenidoCentrado").width(window.innerHeight/aspectRatio/1.2);
+}
 function calcularAspectRatio(){
   //1.33 ipad
   //1.775 iphone5
