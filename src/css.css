@@ -1,0 +1,40 @@
+@font-face {
+    font-family: stencil;
+    src: url(../fonts/sansation_light.woff);
+}
+
+#splash{
+
+	position:fixed;
+	width:100%;
+	height:100%;
+	background-image: url(../img/splash.png);
+	background-size: auto 100%;
+	background-position:center top;
+	z-index:999;
+	display:block;
+
+}
+
+
+.contenidoCentrado, .seccion{
+    box-sizing: border-box;
+}
+.seccion{
+	position:fixed;
+	width:100%;
+	height:100%;
+	display:none;
+	text-align:center;
+}
+.contenidoCentrado{
+	text-align:center;
+	margin:0 auto;
+	padding:10px;
+	height:100%;
+}
+
+body, html{
+	padding:0px;
+	margin:0px;
+}
