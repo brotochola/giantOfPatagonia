@@ -1,0 +1,191 @@
+
+<html>
+
+<head>
+<script src="tracking-min.js"></script>
+<script src="jquery-3.1.1.js"></script>
+
+
+<style>
+
+#resultado{
+    position:fixed;
+    bottom:0px;
+    right:0px;
+}
+
+video, canvas, #img{
+
+    position:fixed;
+    width:100%;
+    height:100%;
+
+}
+body, html{
+    overflow: hidden;
+    padding:0px;
+    margin:0px;
+}
+
+
+#video, #canvasVideo, #imgActual{
+        display:none;   
+}
+
+
+
+</style>
+</head>
+<body>
+<video autoplay id="video"></video>
+<canvas id="canvasVideo"></canvas>
+<canvas id="canvasTracking"></canvas>
+
+
+<script>
+
+
+var imgRef=[];
+var imgData=[];
+var gray=[];
+var corners=[];
+var descriptors=[];
+var matchesResultados=[];
+var confidences=[];
+var imgActual=document.createElement("img");
+
+
+
+
+imgRef.push(document.createElement("img"));
+imgRef.push(document.createElement("img"));
+imgRef[0].setAttribute("src", "5pe.jpg");
+imgRef[1].setAttribute("src", "2pe.jpg");
+var width=window.innerWidth/2;
+var height=window.innerHeight/2;
+var matches=[];
+
+// parametros
+window.descriptorLength = 512;
+window.matchesShown = 0;
+window.blurRadius = 2;
+
+
+var canvasTracking = document.getElementById('canvasTracking');
+var canvasVideo = document.getElementById('canvasVideo');
+canvasVideo.width = width;
+canvasVideo.height = height;
+
+canvasTracking.width=window.innerWidth;
+canvasTracking.height=window.innerHeight;
+
+
+var context = canvasTracking.getContext('2d');
+
+    var doMatch=function(imgData) {      
+
+      tracking.Brief.N = window.descriptorLength;
+
+    //  context.drawImage(img1, 0, 0, width, height);
+     // context.drawImage(img2, width, 0, width, height);
+  
+      var imageData1 = context.getImageData(0, 0, width, height);  
+      var gray1 = tracking.Image.grayscale(tracking.Image.blur(imageData1.data, width, height, blurRadius), width, height);
+      var corners1 = tracking.Fast.findCorners(gray1, width, height);
+      var descriptors1 = tracking.Brief.getDescriptors(gray1, width, corners1);
+
+    for(var i =0; i<imgData.length;i++){
+       gray[i] = tracking.Image.grayscale(tracking.Image.blur(imgData[i].data, width, height, blurRadius), width, height);
+       corners[i] = tracking.Fast.findCorners(gray[i], width, height); 
+       descriptors[i] = tracking.Brief.getDescriptors(gray[i], width, corners[i]);
+      matchesResultados[i] =tracking.Brief.reciprocalMatch(corners1, descriptors1, corners[i], descriptors[i]);
+
+      confidences[i]=0;
+   
+        for (var j = 0; j <  matchesResultados[i].length; j++) {
+            confidences[i]+=matchesResultados[i][j].confidence;
+         }//for j
+     confidences[i]/= matchesResultados[i].length;
+    } //for i
+    console.log(confidences);
+     console.log(matchesResultados);
+
+
+        
+    /*
+      matches.sort(function(a, b) {
+        return b.confidence - a.confidence;
+      });*/
+
+
+/*
+       for (var i = 0; i < Math.min(window.matchesShown, matches.length); i++) {
+        var color = '#' + Math.floor(Math.random()*16777215).toString(16);
+        context.fillStyle = color;
+        context.strokeStyle = color;
+        context.fillRect(matches[i].keypoint1[0], matches[i].keypoint1[1], 4, 4);
+        context.fillRect(matches[i].keypoint2[0] + width, matches[i].keypoint2[1], 4, 4);
+
+        context.beginPath();
+        context.moveTo(matches[i].keypoint1[0], matches[i].keypoint1[1]);
+        context.lineTo(matches[i].keypoint2[0] + width, matches[i].keypoint2[1]);
+        context.stroke();
+
+      }
+*/
+
+
+
+
+    } ;//do MAtch
+
+   
+
+  var errorCallback = function(e) {
+    console.log('Reeeejected!', e);
+  };
+
+  // Not showing vendor prefixes.
+  navigator.getUserMedia({  video: true, audio: false}, function(localMediaStream) {
+    var video = document.getElementById('video');
+    video.src = window.URL.createObjectURL(localMediaStream);
+
+    // Note: onloadedmetadata doesn't fire in Chrome when using it with getUserMedia.
+    // See crbug.com/110938.
+    video.onloadedmetadata = function(e) {
+
+            //compilo la data de todas las img antes
+         for(var i =0; i<imgRef.length;i++){
+                context.drawImage(imgRef[i], width, 0, width, height);
+                imgData[i] = context.getImageData(width, 0, width, height);
+        } 
+
+
+
+        setInterval(function(){
+        
+
+            
+        /* canvasVideo.getContext("2d").drawImage(video, 0, 0, canvasVideo.width, canvasVideo.height);
+     
+          imgActual.setAttribute("src", canvasVideo.toDataURL('image/jpeg'));
+            context.drawImage(imgActual, 0, 0, width, height);*/
+
+           context.drawImage(video, 0, 0, width, height);
+     
+           for(var i =0; i<imgRef.length;i++){
+              resultado= doMatch(imgData); //le meto un array de imgData
+              $("#resultado").html(i+" "+resultado);
+            } 
+         },500);//interval
+    }; // onloadedmetadata
+  }, errorCallback); //getUserMedia
+
+
+
+</script>
+
+<p id="resultado"></p>
+</body>
+
+</html>

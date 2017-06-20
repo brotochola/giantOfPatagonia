@@ -23,9 +23,12 @@ $(document).ready(function() {
 
 function onDeviceReady() {
     console.log("device ready");
+    
+  
+    //responsive
     var aspectRatio=calcularAspectRatio();
-    $(".contenidoCentrado").width(window.innerHeight/1.777);
-
+    $(".contenidoCentrado").width(window.innerHeight/aspectRatio/1.2);
+  
     setTimeout(function(){
       $("#splash").hide();
       $("#mainMenu").show();
