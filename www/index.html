@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+
+<head>
+  <script data-ionic="inject">
+    (function(w){var i=w.Ionic=w.Ionic||{};i.version='3.3.0';i.angular='4.1.2';i.staticDir='build/';})(window);
+  </script>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4e8ef7">
+
+
+<script src="js/jquery-3.1.1.js"></script>
+<!--
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+ <script src="js/ng-cordova.min.js"></script>
+-->
+ <script src="cordova.js"></script>
+
+
+
+ <link rel="stylesheet" type="text/css" href="css/css.css">
+
+
+
+
+<style>
+
+
+
+
+</style>
+
+
+
+
+</head>
+<body onload="console.log('body load');" onresize="responsive()">
+
+<div id="splash"></div>
+
+<div class="seccion" id="mainMenu">
+  <div class="contenidoCentrado">
+    
+
+    <div class="row"><br><br></div>
+    <div class="row" id="logo">
+      <img src="img/logo.png" id="logoIMG">
+    </div>
+
+    <div class="row" >
+      <div class="botonMenu" id="scanner"> <img src="img/scanner.png" >   </div>
+          <div class="botonMenu" id="lista"> <img src="img/botonLista.png" >    </div>
+
+    </div>
+
+      <div class="row" >
+      <div class="botonMenu" id="minijuegos"> <img src="img/minijuegos.png" >   </div>
+          <div class="botonMenu" id="info"> <img src="img/info.png" >    </div>
+
+    </div>
+
+
+ 
+
+  </div>
+</div>
+<div class="seccion" id="miniJuegos"><div class="contenidoCentrado"></div></div>
+<div class="seccion" id="listaDinos"><div class="contenidoCentrado"></div></div>
+<div class="seccion" id="scanner"><div class="contenidoCentrado"></div></div>
+
+
+ <script src="js/app.js"></script>
+
+</body>
+
+</html>

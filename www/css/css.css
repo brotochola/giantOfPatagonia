@@ -1,0 +1,112 @@
+@font-face {
+    font-family: stencil;
+    src: url(../fonts/Stencil Cargo Army.ttf);
+}
+
+@font-face {
+    font-family: helveticaCond;
+    src: url(../fonts/helveticaCond.otf);
+}
+
+
+p{
+	font-family:helveticaCond;
+}
+
+h1, h2, h3, h4, h5, h6{
+font-family:stencil;
+}
+
+#splash{
+position:fixed;
+width:100%;
+height:100%;
+background-image: url(../img/splash.jpg);
+background-size: cover;
+background-position: 50% 50%;
+z-index:999;
+display:block;
+}
+
+
+.contenidoCentrado, .seccion{
+    box-sizing: border-box;
+}
+.seccion{
+	position:fixed;
+	width:100%;
+	height:100%;
+	display:none;
+	text-align:center;
+	background:white;
+	background-size: cover;
+	background-position: center middle;
+}
+.contenidoCentrado{
+	text-align:center;
+	margin:0 auto;
+	padding:10px;
+	height:100%;
+}
+
+
+#mainMenu {
+	background-image:url(../img/fondoMainMenu.jpg);
+}
+
+body, html{
+	padding:0px;
+	margin:0px;
+	background:black;
+}
+
+
+#logoIMG{
+	width: 70%;
+}
+
+.botonMenu{
+	width: 45%;
+	display: inline-block;
+	margin-top: 10%;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+.row .botonMenu:first-child{
+	float:left;
+}
+
+.row .botonMenu:last-child{
+	float:right;
+}
+
+.botonMenu img{
+	width: 100%;
+	transition:transform 0.1s;
+}
+
+.botonMenu:hover img{
+	transform:scale(1.1)
+}
+
+
+@media (min-width:300px) and (max-width:360px){
+
+}
+
+@media (width:768px){
+	#logoIMG{
+		width:60%;
+	}
+
+	.botonMenu img{
+		width: 76%;
+		
+	}
+
+	.botonMenu{
+		float: none !important;
+	}
+	
+}
