@@ -1,12 +1,16 @@
 var tiempoSplash=1500;
-var scannerQR;
 var dataDinos;
+var servidor="http://www.pixeloide.com/giantsOfPatagonia/"
+var dataUsuario={};
+dataUsuario.paginasVisitadas=[];
+dataUsuario.dinosEscaneados=[];
+
 
 $(document).ready(function() {
-    // are we running in native app or in a browser?
+  
 
     console.log("doc ready");
-
+    
 
     window.isphone = false;
     if(document.URL.indexOf("http://") === -1 
@@ -15,15 +19,47 @@ $(document).ready(function() {
     }
 
     if( window.isphone ) {
+        document.addEventListener("pause", onPauseFired, false);
+        document.addEventListener("backbutton", onBackKeyDown, false);
         document.addEventListener("deviceready", onDeviceReady, false);
     } else {
         onDeviceReady();
     }
 });
 
+function onBackKeyDown(){
+    console.log("####  back button");
+
+}
+
+
+
+
+function guardarData(data){
+  //recibe un objeto y lo manda al server
+   $.ajax({
+          url: servidor+"saveData.php?",
+        crossDomain: true,
+         type: "POST",
+          dataType: 'json',
+          success: function(json) {
+           console.log(json);
+           console.log("la data se guardo ok")
+          }});
+
+}
+
+function onPauseFired(){
+  console.log("#### la app se minimizo");
+
+  guardarData(dataUsuario);
+
+
+}
+
 function onDeviceReady() {
     console.log("device ready");
-    
+  //  if( window.isphone )  navigator.splashscreen.hide();
   
     //responsive
     responsive();
@@ -31,12 +67,13 @@ function onDeviceReady() {
     setTimeout(function(){
       $("#splash").hide();
       $("#mainMenu").show();
+      agregarPaginaVisitada("mainMenu");
     }, tiempoSplash); //splash a la fuerza 1 seg
 
 
-  if(window.isphone)  scannerQR=cordova.plugins.barcodeScanner;
-  //click en el boton scanner
+   //click en el boton scanner
   $("#scanner").click(function(){
+    agregarPaginaVisitada("scanner");
      cordova.plugins.barcodeScanner.scan(function(data) {
         QRok(data);
       }, function(error) {
@@ -46,25 +83,36 @@ function onDeviceReady() {
 
 
    $("#lista").click(function(){
+      agregarPaginaVisitada("lista");
       console.log("lista");
    });
 
    $("#minijuegos").click(function(){
+      agregarPaginaVisitada("minijuegos");
     console.log("minijuegos");
    });
 
    $("#info").click(function(){
+      agregarPaginaVisitada("info");
     console.log("info");
    });
 
-
+//carga data dinos
     $.ajax({
           url: "dataDinos.json",
           dataType: 'json',
+          type: "POST",
           success: function(json) {
              dataDinos=json;
           }});
 
+
+    //guardo data localmente para despues mandarla a la DB
+  dataUsuario.plataforma=platform.os.family; //android o ios
+  dataUsuario.idioma=navigator.language; //"es-US" : español de eeuu
+  dataUsuario.versionSO=platform.os.version;
+  dataUsuario.fecha=new Date();
+  dataUsuario.marca=platform.description;
   
 }
 
@@ -98,3 +146,6 @@ function calcularAspectRatio(){
 
 ////////
 
+function agregarPaginaVisitada(cual){
+  dataUsuario.paginasVisitadas.push(cual);
+}
