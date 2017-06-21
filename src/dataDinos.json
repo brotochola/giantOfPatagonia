@@ -1,0 +1,42 @@
+[
+{
+	"nombre":"Rebbachisaurus",
+	"peso":"70 Ton",
+	"pesoIgualA":"Avion",
+	"altura":"200m",
+	"era":"jurassic",
+	"comida":"herbivorous",
+	"video":"videos/rebbachisaurus.mp4",
+	"header":"img/headers/rebbachisaurus.jpg"
+},
+{"nombre":"Mosasaurus"
+},
+{"nombre":"Plesiosaurus"
+},
+{"nombre":"Carnotaurus"
+},
+{"nombre":"Eoraptor"
+},
+{"nombre":"Giganotosaurus"
+},
+{"nombre":"Herrerasaurus"
+},
+{"nombre":"Piatnitzkysaurus"
+},
+{"nombre":"Gasparinisaurus"
+},
+{"nombre":"Buitreraptor"
+},
+{"nombre":"Mussaurus"
+},
+{"nombre":"Megaraptor"
+},
+{"nombre":"Futalongkosaurus"
+},
+{"nombre":"Unenlagia"
+}
+
+
+ 
+
+]
