@@ -1,21 +1,19 @@
-@font-face {
-    font-family: stencil;
-    src: url(../fonts/Stencil Cargo Army.ttf);
-}
+
 
 @font-face {
     font-family: helveticaCond;
     src: url(../fonts/helveticaCond.otf);
 }
 
-
+@font-face {
+    font-family: stencil;
+    src: url(../fonts/stencil.otf);
+}
 p{
 	font-family:helveticaCond;
 }
 
-h1, h2, h3, h4, h5, h6{
-font-family:stencil;
-}
+h1, h2, h3, h4, h5, h6{font-family: stencil;color: white;font-weight: 100;}
 
 #splash{
 position:fixed;
@@ -31,6 +29,7 @@ display:block;
 
 .contenidoCentrado, .seccion{
     box-sizing: border-box;
+    padding-top:10px;
 }
 .seccion{
 	position:fixed;
@@ -40,7 +39,7 @@ display:block;
 	text-align:center;
 	background:white;
 	background-size: cover;
-	background-position: center middle;
+	background-position: 50% 50%;
 }
 .contenidoCentrado{
 	text-align:center;
@@ -128,6 +127,7 @@ video{
 	background-image: url(../img/cerrarVideo.png);
 	background-size:contain;
 	height: 30px;
+	z-index: 9999999;
 }
 
 
@@ -142,4 +142,16 @@ video::-webkit-media-controls-enclosure {
 video::-webkit-media-controls-panel {
    /* width: calc(100% + 30px);*/ /* Adjust as needed */
    width: 100%;
+}
+
+#previoVideoDino{
+	height:15%;
+	width:80%;
+}
+
+h2{
+	
+	font-size:26px;
+    color: white;
+    font-weight: 100;
 }

@@ -3,11 +3,13 @@
 	"id":0,
 	"nombre":"Rebbachisaurus",
 	"peso":"70 Ton",
-	"pesoIgualA":"Avion",
-	"altura":"200m",
+	"pesoIgualA":"img/2orcas.png",
+	"alturaIgualA":"img/edificio.png",
 	"era":"jurassic",
 	"comida":"herbivorous",
-	"video":"videos/rebbachisaurus.mp4"
+	"video":"videos/rebbachisaurus.mp4",
+	"previoVideo":"img/previos/rebbachisaurus.jpg",
+	"fondo":"img/fondos/rebbachisaurus.jpg"
 },
 {
 	"id":1,

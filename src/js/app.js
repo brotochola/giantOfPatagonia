@@ -84,8 +84,11 @@ function onDeviceReady() {
 
 
    $("#lista").click(function(){
-      agregarPaginaVisitada("lista");
+      agregarPaginaVisitada("listaDinos");
       console.log("lista");
+      
+      //para probar ahora simulo haber leido un qr del rebbachi
+     cargarFichaDino(0);
    });
 
    $("#minijuegos").click(function(){
@@ -97,6 +100,39 @@ function onDeviceReady() {
       agregarPaginaVisitada("info");
     console.log("info");
    });
+
+   $("#botonPeso").click(function(){
+     agregarPaginaVisitada(dataDinos[dinoActivo].nombre+"-peso");
+    console.log("botonPeso");
+   });
+
+   $("#botonAltura").click(function(){
+      agregarPaginaVisitada(dataDinos[dinoActivo].nombre+"-altura");
+      console.log("botonAltura");
+   });
+
+   $("#botonEra").click(function(){
+agregarPaginaVisitada(dataDinos[dinoActivo].nombre+"-era");
+    console.log("botonEra");
+   });
+
+   $("#botonAlimentacion").click(function(){
+    agregarPaginaVisitada(dataDinos[dinoActivo].nombre+"-alimentacion");
+    console.log("botonAlimentacion");
+   });
+
+
+   $("#previoVideoDino").click(function(){
+      playVideoDino(dinoActivo);
+   });
+
+   $("#cerrar").click(function(){
+      cargarFichaDino(dinoActivo);
+   });
+
+    document.getElementById('videoDinos').addEventListener('ended',videoTermino,false);
+
+
 
 //carga data dinos
     $.ajax({
@@ -125,8 +161,20 @@ function onDeviceReady() {
     });
 
 
+
+}
+function videoTermino(e) {
+  console.log("el video termino");
+ cargarFichaDino(dinoActivo);
+
 }
 
+function cambiarContenidoFichaDinos(id){
+  //titulo, boton previo y fondo
+  $("#tituloDino").html(dataDinos[id].nombre);
+  document.getElementById("previoVideoDino").src=dataDinos[id].previoVideo;
+  $("#fichaDinos").css("background-image","url("+dataDinos[id].fondo+")");
+}
 
 function playVideoDino(id){
     dinoActivo=id;
@@ -167,4 +215,12 @@ function calcularAspectRatio(){
 
 function agregarPaginaVisitada(cual){
   dataUsuario.paginasVisitadas.push(cual);
+}
+
+function cargarFichaDino(id){
+     dinoActivo=id;
+      agregarPaginaVisitada(dataDinos[dinoActivo].nombre);
+      cambiarContenidoFichaDinos(dinoActivo);
+     $(".seccion").hide();
+     $("#fichaDinos").show();
 }
