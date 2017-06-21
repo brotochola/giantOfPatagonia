@@ -18,14 +18,14 @@ font-family:stencil;
 }
 
 #splash{
-position:fixed;
-width:100%;
-height:100%;
-background-image: url(../img/splash.jpg);
-background-size: cover;
-background-position: 50% 50%;
-z-index:999;
-display:block;
+position:fixed;
+width:100%;
+height:100%;
+background-image: url(../img/splash.jpg);
+background-size: cover;
+background-position: 50% 50%;
+z-index:999;
+display:block;
 }
 
 
@@ -87,7 +87,7 @@ body, html{
 }
 
 .botonMenu:hover img{
-	transform:scale(1.1)
+	transform:scale(0.9);
 }
 
 
@@ -109,4 +109,36 @@ body, html{
 		float: none !important;
 	}
 	
+}
+
+
+video{
+	    width: 100%;
+    height: 100%;
+    background: black;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+#cerrar{
+	position:absolute;
+	right: 10px;
+	width: 30px;
+	top: 10px;
+	background-image: url(../img/cerrarVideo.png);
+	background-size:contain;
+	height: 30px;
+}
+
+
+video::-internal-media-controls-download-button {
+    display:none;
+}
+
+video::-webkit-media-controls-enclosure {
+    overflow:hidden;
+}
+
+video::-webkit-media-controls-panel {
+    width: calc(100% + 30px); /* Adjust as needed */
 }

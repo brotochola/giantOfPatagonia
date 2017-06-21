@@ -1,9 +1,10 @@
 var tiempoSplash=1500;
-var dataDinos;
+var dataDinos={};
 var servidor="http://www.pixeloide.com/giantsOfPatagonia/"
 var dataUsuario={};
 dataUsuario.paginasVisitadas=[];
 dataUsuario.dinosEscaneados=[];
+var dinoActivo=-1;
 
 
 $(document).ready(function() {
@@ -112,9 +113,27 @@ function onDeviceReady() {
   dataUsuario.idioma=navigator.language; //"es-US" : español de eeuu
   dataUsuario.versionSO=platform.os.version;
   dataUsuario.fecha=new Date();
-  dataUsuario.marca=platform.description;
+  dataUsuario.marca=navigator.appVersion;
   
+  //guardo la latitud y longitud usando un plugin de CORDOVA
+  //si esta todo bien, lo meto en el objeto de la data
+    navigator.geolocation.getCurrentPosition(function(position){
+      dataUsuario.latitud=position.coords.latitude ;
+      dataUsuario.longitud=position.coords.longitude ;
+    }, function(error){
+        console.log('code: '    + error.code    + '\n' + 'message: ' + error.message + '\n');
+    });
+
+
 }
+
+
+function playVideoDino(id){
+    dinoActivo=id;
+    $("video#videoDinos").attr("src", dataDinos[id].video);
+    $("#videos").show();
+}
+
 
 function encontrarDinoPorNombre(nombre){
   for(var i=0; i<dataDinos.length;i++){

@@ -1,42 +1,40 @@
 [
 {
+	"id":0,
 	"nombre":"Rebbachisaurus",
 	"peso":"70 Ton",
 	"pesoIgualA":"Avion",
 	"altura":"200m",
 	"era":"jurassic",
 	"comida":"herbivorous",
-	"video":"videos/rebbachisaurus.mp4",
-	"header":"img/headers/rebbachisaurus.jpg"
+	"video":"videos/rebbachisaurus.mp4"
 },
-{"nombre":"Mosasaurus"
+{
+	"id":1,
+	"nombre":"Mosasaurus"
 },
-{"nombre":"Plesiosaurus"
+{"id":2,"nombre":"Plesiosaurus"
 },
-{"nombre":"Carnotaurus"
+{"id":3,"nombre":"Carnotaurus"
 },
-{"nombre":"Eoraptor"
+{"id":4,"nombre":"Eoraptor"
 },
-{"nombre":"Giganotosaurus"
+{"id":5,"nombre":"Giganotosaurus"
 },
-{"nombre":"Herrerasaurus"
+{"id":6,"nombre":"Herrerasaurus"
 },
-{"nombre":"Piatnitzkysaurus"
+{"id":7,"nombre":"Piatnitzkysaurus"
 },
-{"nombre":"Gasparinisaurus"
+{"id":8,"nombre":"Gasparinisaurus",
+	"video":"videos/gasparinisaurus.mp4"
 },
-{"nombre":"Buitreraptor"
+{"id":9,"nombre":"Buitreraptor"
 },
-{"nombre":"Mussaurus"
+{"id":10,"nombre":"Mussaurus"
 },
-{"nombre":"Megaraptor"
+{"id":11,"nombre":"Megaraptor"
 },
-{"nombre":"Futalongkosaurus"
+{"id":12,"nombre":"Futalongkosaurus"
 },
-{"nombre":"Unenlagia"
-}
-
-
- 
-
-]
+{"id":13,"nombre":"Unenlagia"
+}] 
