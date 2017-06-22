@@ -5,7 +5,7 @@ var dataUsuario={};
 dataUsuario.paginasVisitadas=[];
 dataUsuario.dinosEscaneados=[];
 var dinoActivo=-1;
-
+var inicioSesion=(new Date()).getTime();
 
 $(document).ready(function() {
   
@@ -52,7 +52,7 @@ function guardarData(data){
 
 function onPauseFired(){
   console.log("#### la app se minimizo");
-
+  dataUsuario.tiempoSesion=((new Date()).getTime()-inicioSesion)/1000;
   guardarData(dataUsuario);
 
 
@@ -73,7 +73,7 @@ function onDeviceReady() {
 
 
    //click en el boton scanner
-  $("#scanner").click(function(){
+  $("#scanner, #scannerBoton").click(function(){
     agregarPaginaVisitada("scanner");
      cordova.plugins.barcodeScanner.scan(function(data) {
         QRok(data);
@@ -83,20 +83,20 @@ function onDeviceReady() {
   });
 
 
-   $("#lista").click(function(){
+   $("#lista, #listaBoton").click(function(){
       agregarPaginaVisitada("listaDinos");
       console.log("lista");
       
       //para probar ahora simulo haber leido un qr del rebbachi
-     cargarFichaDino(0);
+     playVideoDino(3);
    });
 
-   $("#minijuegos").click(function(){
+   $("#minijuegos, #minijuegosBoton").click(function(){
       agregarPaginaVisitada("minijuegos");
     console.log("minijuegos");
    });
 
-   $("#info").click(function(){
+   $("#info, #infoBoton").click(function(){
       agregarPaginaVisitada("info");
     console.log("info");
    });
@@ -150,6 +150,20 @@ agregarPaginaVisitada(dataDinos[dinoActivo].nombre+"-era");
   dataUsuario.versionSO=platform.os.version;
   dataUsuario.fecha=new Date();
   dataUsuario.marca=navigator.appVersion;
+
+console.log("cargando ip de ipapi.co");
+   $.ajax({
+          url: "http://ipapi.co/json/",
+          dataType: 'json',
+          success: function(data) {
+             dataUsuario.ip=data.ip;
+             console.log("ip cargada de ipapi");
+          }});
+
+
+
+
+
   
   //guardo la latitud y longitud usando un plugin de CORDOVA
   //si esta todo bien, lo meto en el objeto de la data
@@ -171,7 +185,7 @@ function videoTermino(e) {
 
 function cambiarContenidoFichaDinos(id){
   //titulo, boton previo y fondo
-  $("#tituloDino").html(dataDinos[id].nombre);
+  $("#tituloDino").html(dataDinos[id].nombre.toUpperCase());
   document.getElementById("previoVideoDino").src=dataDinos[id].previoVideo;
   $("#fichaDinos").css("background-image","url("+dataDinos[id].fondo+")");
 }
@@ -218,6 +232,7 @@ function agregarPaginaVisitada(cual){
 }
 
 function cargarFichaDino(id){
+     $("#footer").show();
      dinoActivo=id;
       agregarPaginaVisitada(dataDinos[dinoActivo].nombre);
       cambiarContenidoFichaDinos(dinoActivo);

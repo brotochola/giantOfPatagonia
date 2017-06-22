@@ -1,0 +1,42 @@
+[
+{
+	"id":0,
+	"nombre":"Rebbachisaurus",
+	"peso":"70 Ton",
+	"pesoIgualA":"img/2orcas.png",
+	"alturaIgualA":"img/edificio.png",
+	"era":"jurassic",
+	"comida":"herbivorous",
+	"video":"videos/rebbachisaurus.mp4",
+	"previoVideo":"img/previos/rebbachisaurus.jpg",
+	"fondo":"img/fondos/rebbachisaurus.jpg"
+},
+{
+	"id":1,
+	"nombre":"Mosasaurus"
+},
+{"id":2,"nombre":"Plesiosaurus"
+},
+{"id":3,"nombre":"Carnotaurus"
+},
+{"id":4,"nombre":"Eoraptor"
+},
+{"id":5,"nombre":"Giganotosaurus"
+},
+{"id":6,"nombre":"Herrerasaurus"
+},
+{"id":7,"nombre":"Piatnitzkysaurus"
+},
+{"id":8,"nombre":"Gasparinisaurus",
+	"video":"videos/gasparinisaurus.mp4"
+},
+{"id":9,"nombre":"Buitreraptor"
+},
+{"id":10,"nombre":"Mussaurus"
+},
+{"id":11,"nombre":"Megaraptor"
+},
+{"id":12,"nombre":"Futalongkosaurus"
+},
+{"id":13,"nombre":"Unenlagia"
+}] 

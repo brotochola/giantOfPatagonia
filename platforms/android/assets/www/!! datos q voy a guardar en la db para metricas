@@ -1,0 +1,10 @@
+data que voy a guardar:
+pais
+idioma
+aparato
+ubicacion [lat, long]
+fecha y hora
+paginas vistas=[mainMenu, dino1, dino2]
+dinosaurios escaneados=[rebbachisaurus,eoraptor]
+minijuegos jugados=[tal, tal, tal]
+

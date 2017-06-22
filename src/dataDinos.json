@@ -17,7 +17,15 @@
 },
 {"id":2,"nombre":"Plesiosaurus"
 },
-{"id":3,"nombre":"Carnotaurus"
+{"id":3,"nombre":"Carnotaurus",
+	"peso":"70 Ton",
+	"pesoIgualA":"img/2orcas.png",
+	"alturaIgualA":"img/edificio.png",
+	"era":"jurassic",
+	"comida":"herbivorous",
+	"video":"videos/buitreraptor.mp4",
+	"previoVideo":"img/previos/carnotaurus.png",
+	"fondo":"img/fondos/carnotaurus.jpg"
 },
 {"id":4,"nombre":"Eoraptor"
 },
